@@ -8,7 +8,7 @@ import AirData from './component/AirData'
 import axios from 'axios'
 
 const App = () => {
-  const API_KEY = '3713b5e1-1e3d-4949-b984-f96ced24e5b3'
+  const API_KEY = process.env.REACT_APP_API_KEY
   const COUNTRY = 'Thailand'
   const [states, setStates] = useState([])
   const [cities, setCities] = useState([])
@@ -21,7 +21,6 @@ const App = () => {
       `http://api.airvisual.com/v2/states?country=${COUNTRY}&key=${API_KEY}`
     )
     setStates(res.data.data)
-    console.log(res.data.data)
     setLoading(false)
   }
 
@@ -31,7 +30,6 @@ const App = () => {
       `http://api.airvisual.com/v2/cities?state=${state}&country=${COUNTRY}&key=${API_KEY}`
     )
     setCities(res.data.data)
-    console.log(res.data.data)
     setLoading(false)
   }
 
@@ -40,7 +38,6 @@ const App = () => {
     const res = await axios.get(
       `http://api.airvisual.com/v2/city?city=${city}&state=${state}&country=${COUNTRY}&key=${API_KEY}`
     )
-    console.log(res.data.data)
     setWeatherData(res.data.data)
     setLoading(false)
   }

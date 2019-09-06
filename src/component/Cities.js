@@ -27,7 +27,7 @@ const Cities = ({ match, cities, fetchCities, loading }) => {
           <h5>Cities in {match.params.state}</h5>
           <ol>
             {cities.map(city => (
-              <li>
+              <li key={city.city}>
                 <Link to={`/${match.params.state}/city/${city.city}`}>
                   {city.city}
                 </Link>
