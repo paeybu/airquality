@@ -18,7 +18,7 @@ const App = () => {
   const fetchStates = async () => {
     setLoading(true)
     const res = await axios.get(
-      `http://api.airvisual.com/v2/states?country=${COUNTRY}&key=${API_KEY}`
+      `https://api.airvisual.com/v2/states?country=${COUNTRY}&key=${API_KEY}`
     )
     setStates(res.data.data)
     setLoading(false)
@@ -27,7 +27,7 @@ const App = () => {
   const fetchCities = async state => {
     setLoading(true)
     const res = await axios.get(
-      `http://api.airvisual.com/v2/cities?state=${state}&country=${COUNTRY}&key=${API_KEY}`
+      `https://api.airvisual.com/v2/cities?state=${state}&country=${COUNTRY}&key=${API_KEY}`
     )
     setCities(res.data.data)
     setLoading(false)
@@ -36,7 +36,7 @@ const App = () => {
   const fetchWeatherData = async (city, state) => {
     setLoading(true)
     const res = await axios.get(
-      `http://api.airvisual.com/v2/city?city=${city}&state=${state}&country=${COUNTRY}&key=${API_KEY}`
+      `https://api.airvisual.com/v2/city?city=${city}&state=${state}&country=${COUNTRY}&key=${API_KEY}`
     )
     setWeatherData(res.data.data)
     setLoading(false)
